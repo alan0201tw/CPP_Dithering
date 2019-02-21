@@ -36,10 +36,11 @@ namespace dithering
 
 					if (j + 1 < width && j > 0 && i + 1 < height)
 					{
-						outputImage.at<uint8_t>(i, j + 1) = saturated_add(outputImage.at<uint8_t>(i, j + 1), quant_error * 7 / 16);
-						outputImage.at<uint8_t>(i + 1, j + 1) = saturated_add(outputImage.at<uint8_t>(i + 1, j + 1), quant_error * 3 / 16);
-						outputImage.at<uint8_t>(i + 1, j) = saturated_add(outputImage.at<uint8_t>(i + 1, j), quant_error * 5 / 16);
-						outputImage.at<uint8_t>(i + 1, j - 1) = saturated_add(outputImage.at<uint8_t>(i + 1, j - 1), quant_error * 1 / 16);
+						// use bit shifting ( >> 4 ) instead of integer dividing, saving performance
+						outputImage.at<uint8_t>(i, j + 1) = saturated_add(outputImage.at<uint8_t>(i, j + 1), (quant_error * 7) >> 4);
+						outputImage.at<uint8_t>(i + 1, j + 1) = saturated_add(outputImage.at<uint8_t>(i + 1, j + 1), (quant_error * 3) >> 4);
+						outputImage.at<uint8_t>(i + 1, j) = saturated_add(outputImage.at<uint8_t>(i + 1, j), (quant_error * 5) >> 4);
+						outputImage.at<uint8_t>(i + 1, j - 1) = saturated_add(outputImage.at<uint8_t>(i + 1, j - 1), (quant_error * 1) >> 4);
 					}
 				}
 			}
