@@ -66,7 +66,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor\OpenCV\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\OpenCV\build\include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>
       </LanguageStandard>
     </ClCompile>
@@ -78,12 +78,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="include\Dithering\DitheringWeight.cpp" />
+    <ClCompile Include="include\Dithering\util.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\DitheringBase.h" />
-    <ClInclude Include="src\FloydSteinberg.h" />
-    <ClInclude Include="src\util.h" />
+    <ClInclude Include="include\Dithering.h" />
+    <ClInclude Include="include\Dithering\DitheringWeight.h" />
+    <ClInclude Include="include\Dithering\DitheringBase.h" />
+    <ClInclude Include="include\Dithering\FloydSteinberg.h" />
+    <ClInclude Include="include\Dithering\util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

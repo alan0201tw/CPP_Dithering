@@ -1,13 +1,13 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
-#include "FloydSteinberg.h"
+#include "Dithering.h"
 
 int main()
 {
 	std::cout << "Hello" << std::endl;
 
-	std::string inputImageFile = "Portal_Companion_Cube.jpg";
+	std::string inputImageFile = "Resources/Portal_Companion_Cube.jpg";
 
 	// read in image as a grayscale image
 	cv::Mat img = cv::imread(inputImageFile);
@@ -18,7 +18,10 @@ int main()
 	}
 
 	cv::cvtColor(img, img, cv::COLOR_BGR2GRAY);
-	dithering::FloydSteinberg ditherer;
+	/*dithering::FloydSteinberg ditherer;
+	img = ditherer.dither(img);*/
+
+	dithering::DitheringWeight ditherer(std::string("Resources/JarvisJudiceNinke.txt"));
 	img = ditherer.dither(img);
 
 	// show the image

@@ -18,15 +18,27 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="include\Dithering\DitheringWeight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\Dithering\util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\DitheringBase.h">
+    <ClInclude Include="include\Dithering.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\FloydSteinberg.h">
+    <ClInclude Include="include\Dithering\DitheringBase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\util.h">
+    <ClInclude Include="include\Dithering\DitheringWeight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Dithering\FloydSteinberg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Dithering\util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
