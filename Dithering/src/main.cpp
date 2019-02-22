@@ -21,7 +21,7 @@ int main()
 	/*dithering::FloydSteinberg ditherer;
 	img = ditherer.dither(img);*/
 
-	dithering::DitheringWeight ditherer(std::string("Resources/JarvisJudiceNinke.txt"));
+	dithering::DitheringWeight ditherer(std::string("Resources/Atkinson.txt"));
 	img = ditherer.dither(img);
 
 	// show the image

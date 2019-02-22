@@ -89,6 +89,16 @@
     <ClInclude Include="include\Dithering\FloydSteinberg.h" />
     <ClInclude Include="include\Dithering\util.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Resources\Atkinson.txt" />
+    <Text Include="Resources\FloydSteinberg.txt" />
+    <Text Include="Resources\JarvisJudiceNinke.txt" />
+    <Text Include="Resources\Stucki.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\lena.png" />
+    <Image Include="Resources\Portal_Companion_Cube.jpg" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

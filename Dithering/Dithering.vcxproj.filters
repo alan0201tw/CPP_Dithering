@@ -42,4 +42,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Resources\Stucki.txt" />
+    <Text Include="Resources\FloydSteinberg.txt" />
+    <Text Include="Resources\JarvisJudiceNinke.txt" />
+    <Text Include="Resources\Atkinson.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\lena.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Portal_Companion_Cube.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

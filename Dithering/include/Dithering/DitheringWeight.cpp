@@ -22,11 +22,27 @@ namespace dithering
 		std::ifstream inputStream(filename.c_str(), std::ios::in);
 		while (!inputStream.eof())
 		{
-			WeightEntry entry;
+			char controlCharacter;
+			inputStream >> controlCharacter;
+
 			char comma;
-			inputStream >> entry.width_offset >> comma >> entry.height_offset >> comma >> entry.weight;
-			this->weightEntries.push_back(entry);
-			divisor += entry.weight;
+			WeightEntry entry;
+			bool isManuallyAssignDivisor = false;
+
+			switch (controlCharacter)
+			{
+			case 'e': // entry
+				inputStream >> entry.width_offset >> comma >> entry.height_offset >> comma >> entry.weight;
+				weightEntries.push_back(entry);
+				if (isManuallyAssignDivisor == false)
+					divisor += entry.weight;
+				break;
+			case 'd': // manually assign divisor
+				inputStream >> divisor;
+				isManuallyAssignDivisor = true;
+			default:
+				break;
+			}
 		}
 	}
 
@@ -38,7 +54,7 @@ namespace dithering
 				<< ", height_offset = " << entry.height_offset
 				<< ", weight = " << entry.weight << std::endl;
 		}
-		std::cout << "divisor = " << this->divisor << std::endl;
+		std::cout << "divisor = " << divisor << std::endl;
 
 		cv::Mat outputImage = inputImage.clone();
 
@@ -63,7 +79,7 @@ namespace dithering
 					if (heightIndex >= 0 && heightIndex < height && widthIndex >= 0 && widthIndex < width)
 					{
 						outputImage.at<uint8_t>(heightIndex, widthIndex) =
-							saturated_add(outputImage.at<uint8_t>(heightIndex, widthIndex), quant_error * entry.weight / this->divisor);
+							saturated_add(outputImage.at<uint8_t>(heightIndex, widthIndex), (quant_error * entry.weight) / divisor);
 					}
 				}
 			}
